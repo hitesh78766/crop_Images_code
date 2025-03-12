@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Crop and Download</title>
+    <link rel="stylesheet" href="crop.css">
+    <!-- Cropper css cdn line -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.css"
+        integrity="sha512-087vysR/jM0N5cp13Vlp+ZF9wx6tKbvJLwPO8Iit6J7R+n7uIMMjg37dEgexOshDmDITHYY5useeSmfD1MYiQA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container">
+        <h2> Crop Image</h2>
+
+        <div class="preloaded-images">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoBuMvSuYezLE9rwI-zOJeIOmcIGfDPqOvFA&s"
+                class="selectable-image">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/036/324/708/small/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg"
+                class="selectable-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx6yT7oBWFeKJH-85mTe_LX8XL5RXw1mRFow&s"
+                class="selectable-image">
+            <img src="https://st.depositphotos.com/2001755/3622/i/450/depositphotos_36220949-stock-photo-beautiful-landscape.jpg"
+                class="selectable-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ1ipeQbFseUM_GzxwMoQj45w9HtAnu4eu5w&s"
+                class="selectable-image">
+        </div>
+
+        <!-- Image Preview Area -->
+        <div class="image-container">
+            <img id="previewImage">
+        </div>
+
+        <button class="cropBtn" id="cropButton">Crop & Download</button>
+
+        <!-- Hidden Canvas for Cropping -->
+        <!-- <canvas id="canvas" style="display: none;"></canvas> -->
+
+    </div>
+
+    <h3 style="font-size: 24px; font-weight: bold; margin-top: 20px;">Cropped Images:</h3>
+
+    <!-- show crop image  -->
+    <div class="cropped-image-container">
+    </div>
+
+    <!-- show crop & download button -->
+    <div class="" id="downLoadButton" class="download">
+    </div>
+
+    <!-- cdn of cropper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"
+        integrity="sha512-JyCZjCOZoyeQZSd5+YEAcFgz2fowJ1F1hyJOXgtKu4llIa0KneLcidn5bwfutiehUTiOuK87A986BZJMko0eWQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="crop.js"></script>
+
+</body>
+
+</html>
+
