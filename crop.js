@@ -54,13 +54,12 @@ cropButton.addEventListener("click", function () {
     let croppedImages = JSON.parse(localStorage.getItem("croppedImages")) || [];
 
     // Add new cropped image to the array
-    const newImage = { id: Date.now(), image: dataURL, originalURL : previewImage.src};
-    console.log("the console is : " , newImage.originalURL)
+    const newImage = { id: Date.now(), image: dataURL};
+    // console.log("the console is : " , newImage.originalURL)
     croppedImages.push(newImage);
 
     // Save updated array back to LocalStorage
     localStorage.setItem("croppedImages", JSON.stringify(croppedImages));
-
 
 
     // create the image section 
@@ -72,25 +71,6 @@ cropButton.addEventListener("click", function () {
 
     croppedImageContainer.appendChild(createImageCropContainer)
 
-
-    createImageCropContainer.addEventListener("click" , ()=>{
-        previewImage.src = dataURL;
-        previewImage.style.display = "block";
-        cropButton.innerHTML = "Update"
-
-        if (cropper) {
-            cropper.destroy()
-        }
-
-        // the new cropping is appears box on top of the image
-        cropper = new Cropper(previewImage, {
-            aspectRatio: 1
-        })
-
-    })
-
-    cropButton.innerHTML = "Crop and Download"
-
     // create the download section for download the image 
     const downLoadLink = document.createElement("a");
     downLoadLink.href = dataURL;
@@ -101,23 +81,44 @@ cropButton.addEventListener("click", function () {
 
 })
 
+// Restore cropped images on page load
+window.onload = function () {
+    let croppedImages = JSON.parse(localStorage.getItem("croppedImages")) || [];
+    console.log("the window onload crop image is :" , croppedImages)
 
+    croppedImageContainer.innerHTML = ""; // Clear existing content
 
+    croppedImages.forEach((imageData) => {
+        const croppedImg = document.createElement("img");
+        croppedImg.src = imageData.image;
+        croppedImg.style.margin = "10px";
+        croppedImg.style.width = "150px";
+        croppedImg.style.border = "2px solid #000";
+        croppedImageContainer.appendChild(croppedImg);
 
+        // re-edit the croped image and saved 
+        croppedImg.addEventListener("click", () => {
+            previewImage.src = imageData.image;
+            previewImage.style.display = "block";
+            cropButton.innerHTML = "Update";
 
+            if (cropper) {
+                cropper.destroy();
+            }
 
+            cropper = new Cropper(previewImage, {
+                aspectRatio: 1
+            });
+        });
 
+        cropButton.innerHTML = "Crop and Download"
 
+    // create the download section for download the image 
+    const downLoadLink = document.createElement("a");
+    downLoadLink.href = imageData.image;
+    downLoadLink.download = 'cropped-image.png';
+    downLoadLink.innerHTML = "Download Image"
 
-
-
-
-
-
-
-
-
-
-
-
-
+    downLoadButton.appendChild(downLoadLink)
+    });
+};

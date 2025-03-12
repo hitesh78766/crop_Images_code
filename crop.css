@@ -1,16 +1,16 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     text-align: center;
     margin: 20px;
     background-color: #f8f9fa;
 }
 
-.container{
+.container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
@@ -19,14 +19,14 @@ body{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.preloaded-images{
+.preloaded-images {
     display: flex;
     margin-bottom: 20px;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.preloaded-images img{
+.preloaded-images img {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -71,7 +71,7 @@ body{
     margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .cropped-image-container img {
@@ -85,6 +85,13 @@ body{
     justify-items: center;
 }
 
+#downLoadButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 #downLoadButton a {
     display: inline-block;
     margin-bottom: 10px;
@@ -93,27 +100,5 @@ body{
     padding: 10px 12px;
     text-decoration: none;
     border-radius: 5px;
-    
-} 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
